@@ -27,7 +27,7 @@ export class ControladorHabitacion{
             }catch(error){
     
                 response.status(400).json({
-                    mensaje:"fallamos en el ingreso de datos",
+                    mensaje:"fallamos en el ingreso de datos"+error,
                     datosIngresados:[],
                     estado:false
                 })
