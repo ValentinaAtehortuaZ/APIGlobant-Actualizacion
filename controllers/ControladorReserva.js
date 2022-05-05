@@ -17,11 +17,11 @@ export class ControladorReserva {
         let datosReserva = request.body//Recibo datos
 
         try {
-            await reserva.registrar(datosPeticion)
+            await reserva.registrar(datosReserva)
             //Envio la respuesta
             response.status(200).json({
                 mensaje: "Exito en el ingreso de la reserva",
-                datosIngresados: [],
+                datosIngresados: datosReserva,
                 estado: true
             })
         } catch (error) {
@@ -44,7 +44,7 @@ export class ControladorReserva {
         try {
             response.status(200).json({
                 mensaje: "Exito buscando reserva por ID ",
-                datos: await reserva.buscarPorId(),
+                datos: await reserva.buscarPorId(id),
                 estado: true
             })
         } catch (error) {
